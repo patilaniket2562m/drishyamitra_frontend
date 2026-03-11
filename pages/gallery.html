@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gallery</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/app.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+<div><b>Drishyamitra</b></div>
+<div>
+<a href="../index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="gallery.html">Gallery</a>
+<a href="upload.html">Upload</a>
+<a href="faces.html">Faces</a>
+<a href="tags.html">AI Tags</a>
+<a href="analytics.html">Analytics</a>
+<a href="share.html">Share</a>
+<a href="settings.html">Settings</a>
+</div>
+<button onclick="toggleDark()">🌙</button>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Masonry Gallery</h2>
+<div class="masonry"><img src="https://picsum.photos/500?1" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?2" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?3" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?4" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?5" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?6" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?7" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?8" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?9" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?10" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?11" onclick="openLightbox(this.src)"><img src="https://picsum.photos/500?12" onclick="openLightbox(this.src)"></div>
+</div>
+
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
+
+</body>
+</html>
