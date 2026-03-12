@@ -272,6 +272,29 @@ window.location.href="dashboard.html"
 }
 
 
+function registerUser(event){
+
+event.preventDefault()
+
+const name = document.getElementById("name").value
+const email = document.getElementById("email").value
+const password = document.getElementById("password").value
+const confirm = document.getElementById("confirmPassword").value
+
+if(password !== confirm){
+
+alert("Passwords do not match")
+return
+
+}
+
+localStorage.setItem("userLoggedIn","true")
+
+window.location.href = "dashboard.html"
+
+}
+
+
 /* ===============================
    GALLERY IMAGE CLICK HANDLER
 ================================ */
