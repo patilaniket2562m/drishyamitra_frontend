@@ -1,38 +1,118 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Login</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Drishyamitra</title>
+
 <link rel="stylesheet" href="../css/style.css">
-<script src="../js/app.js"></script>
+
+<script defer src="../js/app.js"></script>
+
 </head>
+
 <body>
 
-<div class="navbar">
-<div><b>Drishyamitra</b></div>
-<div>
+<header class="navbar">
+
+<div class="logo">Drishyamitra</div>
+
+<nav class="nav-links">
+
 <a href="../index.html">Home</a>
-<a href="dashboard.html">Dashboard</a>
 <a href="gallery.html">Gallery</a>
 <a href="upload.html">Upload</a>
-<a href="faces.html">Faces</a>
-<a href="tags.html">AI Tags</a>
-<a href="analytics.html">Analytics</a>
-<a href="share.html">Share</a>
-<a href="settings.html">Settings</a>
-</div>
+
+</nav>
+
+<div class="nav-actions">
+
 <button onclick="toggleDark()">🌙</button>
-</div>
-
-<div class="container">
-
-<div class="card"><h2>Login</h2><p>Page UI</p></div>
 
 </div>
 
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
+</header>
+
+
+<!-- LOGIN SECTION -->
+
+<section class="login-section">
+
+<div class="login-container">
+
+<h2>Login to your account</h2>
+
+<form onsubmit="loginUser(event)">
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required
+>
+
 </div>
+
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input
+type="password"
+id="password"
+placeholder="Enter your password"
+required
+>
+
+</div>
+
+
+<div class="form-options">
+
+<label>
+<input type="checkbox"> Remember me
+</label>
+
+<a href="#">Forgot password?</a>
+
+</div>
+
+
+<button class="btn-primary login-btn">
+Login
+</button>
+
+</form>
+
+
+<p class="register-text">
+
+Don't have an account?
+
+<a href="register.html">
+Register
+</a>
+
+</p>
+
+</div>
+
+</section>
+
+
+<footer class="footer">
+
+© 2026 Drishyamitra
+
+</footer>
 
 </body>
 </html>
