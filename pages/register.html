@@ -1,38 +1,138 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Register</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register | Drishyamitra</title>
+
 <link rel="stylesheet" href="../css/style.css">
-<script src="../js/app.js"></script>
+
+<script defer src="../js/app.js"></script>
+
 </head>
+
 <body>
 
-<div class="navbar">
-<div><b>Drishyamitra</b></div>
-<div>
+<header class="navbar">
+
+<div class="logo">Drishyamitra</div>
+
+<nav class="nav-links">
+
 <a href="../index.html">Home</a>
-<a href="dashboard.html">Dashboard</a>
 <a href="gallery.html">Gallery</a>
 <a href="upload.html">Upload</a>
-<a href="faces.html">Faces</a>
-<a href="tags.html">AI Tags</a>
-<a href="analytics.html">Analytics</a>
-<a href="share.html">Share</a>
-<a href="settings.html">Settings</a>
-</div>
+
+</nav>
+
+<div class="nav-actions">
+
 <button onclick="toggleDark()">🌙</button>
-</div>
-
-<div class="container">
-
-<div class="card"><h2>Register</h2><p>Page UI</p></div>
 
 </div>
 
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
+</header>
+
+
+
+<!-- REGISTER SECTION -->
+
+<section class="login-section">
+
+<div class="login-container">
+
+<h2>Create Account</h2>
+
+<form onsubmit="registerUser(event)">
+
+<div class="form-group">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required
+>
+
 </div>
+
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input
+type="password"
+id="password"
+placeholder="Create password"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Confirm Password</label>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm password"
+required
+>
+
+</div>
+
+
+<button class="btn-primary login-btn">
+Register
+</button>
+
+</form>
+
+
+<p class="register-text">
+
+Already have an account?
+
+<a href="login.html">
+Login
+</a>
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<footer class="footer">
+
+© 2026 Drishyamitra
+
+</footer>
+
 
 </body>
 </html>
