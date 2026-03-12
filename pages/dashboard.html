@@ -1,16 +1,29 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Dashboard</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Drishyamitra</title>
+
 <link rel="stylesheet" href="../css/style.css">
-<script src="../js/app.js"></script>
+
+<script defer src="../js/app.js"></script>
+
 </head>
+
 <body>
 
-<div class="navbar">
-<div><b>Drishyamitra</b></div>
-<div>
+<header class="navbar">
+
+<div class="logo">
+Drishyamitra
+</div>
+
+<nav class="nav-links">
+
 <a href="../index.html">Home</a>
 <a href="dashboard.html">Dashboard</a>
 <a href="gallery.html">Gallery</a>
@@ -20,19 +33,146 @@
 <a href="analytics.html">Analytics</a>
 <a href="share.html">Share</a>
 <a href="settings.html">Settings</a>
-</div>
+
+</nav>
+
+<div class="nav-actions">
+
 <button onclick="toggleDark()">🌙</button>
+
 </div>
+
+</header>
+
+
+
+<!-- DASHBOARD -->
 
 <div class="container">
 
-<div class="card"><h2>Dashboard</h2><p>Welcome to Drishyamitra</p></div>
+<h1 class="section-title">Dashboard</h1>
+
+<p style="margin-bottom:30px;">
+Welcome back! Here is an overview of your photo collection.
+</p>
+
+
+
+<!-- STATISTICS -->
+
+<div class="stats-grid">
+
+<div class="glass-card stat">
+
+<h2 id="photosCount">15432</h2>
+<p>Total Photos</p>
 
 </div>
+
+<div class="glass-card stat">
+
+<h2 id="peopleCount">48</h2>
+<p>People Recognized</p>
+
+</div>
+
+<div class="glass-card stat">
+
+<h2 id="eventsCount">120</h2>
+<p>Events Organized</p>
+
+</div>
+
+<div class="glass-card stat">
+
+<h2 id="sharedCount">3200</h2>
+<p>Photos Shared</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUICK ACTIONS -->
+
+<h2 class="section-title" style="margin-top:50px;">
+Quick Actions
+</h2>
+
+<div class="features-grid">
+
+<a href="upload.html" class="glass-card">
+
+<h3>Upload Photos</h3>
+
+<p>Add new photos to your collection</p>
+
+</a>
+
+<a href="gallery.html" class="glass-card">
+
+<h3>View Gallery</h3>
+
+<p>Browse your photo library</p>
+
+</a>
+
+<a href="faces.html" class="glass-card">
+
+<h3>Face Recognition</h3>
+
+<p>Manage detected people</p>
+
+</a>
+
+<a href="analytics.html" class="glass-card">
+
+<h3>View Analytics</h3>
+
+<p>Check AI statistics and insights</p>
+
+</a>
+
+</div>
+
+
+
+<!-- RECENT PHOTOS -->
+
+<h2 class="section-title" style="margin-top:50px;">
+Recent Photos
+</h2>
+
+<div class="masonry">
+
+<img src="https://picsum.photos/400?1">
+<img src="https://picsum.photos/400?2">
+<img src="https://picsum.photos/400?3">
+<img src="https://picsum.photos/400?4">
+<img src="https://picsum.photos/400?5">
+<img src="https://picsum.photos/400?6">
+
+</div>
+
+
+</div>
+
+
+
+<!-- LIGHTBOX -->
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
 <img id="lightbox-img">
 </div>
+
+
+
+<footer class="footer">
+
+© 2026 Drishyamitra
+
+</footer>
 
 </body>
 </html>
