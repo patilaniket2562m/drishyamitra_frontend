@@ -1,25 +1,49 @@
-/* ===============================
-   DARK MODE TOGGLE
-================================ */
+/* ======================================
+DARK MODE TOGGLE
+====================================== */
 
 function toggleDark() {
 
 document.body.classList.toggle("light")
 
+localStorage.setItem(
+"theme",
+document.body.classList.contains("light") ? "light" : "dark"
+)
+
 }
 
 
-/* ===============================
-   LIGHTBOX IMAGE VIEWER
-================================ */
+/* ======================================
+LOAD SAVED THEME
+====================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const theme = localStorage.getItem("theme")
+
+if(theme === "light"){
+
+document.body.classList.add("light")
+
+}
+
+})
+
+
+
+/* ======================================
+LIGHTBOX IMAGE VIEWER
+====================================== */
 
 function openLightbox(src){
 
 const box = document.getElementById("lightbox")
 const img = document.getElementById("lightbox-img")
 
-img.src = src
+if(!box || !img) return
 
+img.src = src
 box.style.display = "flex"
 
 }
@@ -28,35 +52,37 @@ function closeLightbox(){
 
 const box = document.getElementById("lightbox")
 
-box.style.display = "none"
+if(box) box.style.display = "none"
 
 }
 
 
-/* ===============================
-   DRAG & DROP UPLOAD
-================================ */
 
-function allowDrop(ev){
+/* ======================================
+DRAG & DROP UPLOAD
+====================================== */
 
-ev.preventDefault()
+function allowDrop(e){
+
+e.preventDefault()
 
 }
 
-function dropHandler(ev){
+function dropHandler(e){
 
-ev.preventDefault()
+e.preventDefault()
 
-const files = ev.dataTransfer.files
+const files = e.dataTransfer.files
 
 previewImages(files)
 
 }
 
 
-/* ===============================
-   FILE INPUT PREVIEW
-================================ */
+
+/* ======================================
+IMAGE PREVIEW
+====================================== */
 
 function previewImages(files){
 
@@ -75,9 +101,7 @@ reader.onload = function(e){
 const img = document.createElement("img")
 
 img.src = e.target.result
-img.style.width = "120px"
-img.style.margin = "8px"
-img.style.borderRadius = "8px"
+img.className = "preview-img"
 
 preview.appendChild(img)
 
@@ -90,9 +114,10 @@ reader.readAsDataURL(file)
 }
 
 
-/* ===============================
-   AI TAGGING SYSTEM
-================================ */
+
+/* ======================================
+AI TAGGING SYSTEM
+====================================== */
 
 function addTag(){
 
@@ -101,12 +126,14 @@ const container = document.getElementById("tags")
 
 if(!input || !container) return
 
-if(!input.value.trim()) return
+const value = input.value.trim()
+
+if(value === "") return
 
 const tag = document.createElement("span")
 
 tag.className = "tag"
-tag.innerText = input.value
+tag.textContent = value
 
 container.appendChild(tag)
 
@@ -115,11 +142,10 @@ input.value = ""
 }
 
 
-/* ===============================
-   REMOVE TAG ON CLICK
-================================ */
 
-document.addEventListener("click",function(e){
+/* REMOVE TAG */
+
+document.addEventListener("click",(e)=>{
 
 if(e.target.classList.contains("tag")){
 
@@ -130,9 +156,10 @@ e.target.remove()
 })
 
 
-/* ===============================
-   MOBILE NAVBAR TOGGLE
-================================ */
+
+/* ======================================
+MOBILE NAVBAR
+====================================== */
 
 function toggleMenu(){
 
@@ -147,112 +174,119 @@ menu.classList.toggle("show")
 }
 
 
-/* ===============================
-   AI SEARCH DEMO
-================================ */
+
+/* ======================================
+AI SEARCH DEMO
+====================================== */
 
 function searchPhotos(){
 
-const query = document.getElementById("searchInput")
+const input = document.getElementById("searchInput")
 
-if(!query) return
+if(!input) return
 
-alert("AI searching for: " + query.value)
+const query = input.value.trim()
+
+if(query === ""){
+
+alert("Enter search query")
+
+return
+
+}
+
+alert("AI searching for: " + query)
 
 }
 
 
-/* ===============================
-   WHATSAPP SHARE
-================================ */
+
+/* ======================================
+WHATSAPP SHARE
+====================================== */
 
 function shareWhatsApp(){
 
 const url = window.location.href
-
 const text = "Check out these photos"
 
 window.open(
 
-"https://wa.me/?text=" + encodeURIComponent(text + " " + url)
+"https://wa.me/?text=" +
+encodeURIComponent(text + " " + url)
 
 )
 
 }
 
 
-/* ===============================
-   EMAIL SHARE
-================================ */
+
+/* ======================================
+EMAIL SHARE
+====================================== */
 
 function shareEmail(){
 
 const subject = "Shared Photos"
-
 const body = "Check out these photos: " + window.location.href
 
 window.location.href =
-
-"mailto:?subject=" +
-
-encodeURIComponent(subject) +
-
-"&body=" +
-
-encodeURIComponent(body)
+`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
 }
 
 
-/* ===============================
-   ANALYTICS COUNTER ANIMATION
-================================ */
 
-function animateCounter(id, target){
+/* ======================================
+ANALYTICS COUNTER ANIMATION
+====================================== */
 
-let element = document.getElementById(id)
+function animateCounter(id,target){
 
-if(!element) return
+const el = document.getElementById(id)
+
+if(!el) return
 
 let count = 0
+const speed = target / 100
 
-let speed = target / 100
-
-let interval = setInterval(function(){
+const interval = setInterval(()=>{
 
 count += speed
 
 if(count >= target){
 
 count = target
-
 clearInterval(interval)
 
 }
 
-element.innerText = Math.floor(count)
+el.textContent = Math.floor(count)
 
 },20)
 
 }
 
 
-/* ===============================
-   RUN COUNTERS ON PAGE LOAD
-================================ */
 
-window.onload = function(){
+/* ======================================
+RUN COUNTERS
+====================================== */
+
+document.addEventListener("DOMContentLoaded",()=>{
 
 animateCounter("photosCount",15432)
-
 animateCounter("peopleCount",48)
-
 animateCounter("eventsCount",120)
-
 animateCounter("sharedCount",3200)
 
-}
+})
 
+
+
+/* ======================================
+LOGIN SYSTEM
+====================================== */
 
 function loginUser(event){
 
@@ -265,19 +299,22 @@ if(email && password){
 
 localStorage.setItem("userLoggedIn","true")
 
-window.location.href="dashboard.html"
+window.location.href = "dashboard.html"
 
 }
 
 }
 
+
+
+/* ======================================
+REGISTER SYSTEM
+====================================== */
 
 function registerUser(event){
 
 event.preventDefault()
 
-const name = document.getElementById("name").value
-const email = document.getElementById("email").value
 const password = document.getElementById("password").value
 const confirm = document.getElementById("confirmPassword").value
 
@@ -295,19 +332,65 @@ window.location.href = "dashboard.html"
 }
 
 
-/* ===============================
-   GALLERY IMAGE CLICK HANDLER
-================================ */
 
-document.addEventListener("DOMContentLoaded", function(){
+/* ======================================
+LOGOUT
+====================================== */
+
+function logout(){
+
+localStorage.removeItem("userLoggedIn")
+
+window.location.href = "../index.html"
+
+}
+
+
+
+/* ======================================
+PROTECT DASHBOARD PAGES
+====================================== */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const protectedPages = [
+"dashboard.html",
+"gallery.html",
+"upload.html",
+"faces.html",
+"analytics.html",
+"settings.html"
+]
+
+const page = window.location.pathname.split("/").pop()
+
+if(protectedPages.includes(page)){
+
+if(!localStorage.getItem("userLoggedIn")){
+
+window.location.href = "login.html"
+
+}
+
+}
+
+})
+
+
+
+/* ======================================
+MASONRY IMAGE CLICK HANDLER
+====================================== */
+
+document.addEventListener("DOMContentLoaded",()=>{
 
 const images = document.querySelectorAll(".masonry img")
 
 images.forEach(img => {
 
-img.addEventListener("click", function(){
+img.addEventListener("click",()=>{
 
-openLightbox(this.src)
+openLightbox(img.src)
 
 })
 
